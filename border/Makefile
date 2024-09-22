@@ -4,16 +4,18 @@
 PGF=$(subst \,/,$(subst C:\,/c/,$(PROGRAMFILES)))
 PATH:=${PATH}:${PGF}/Inkscape/bin
 
-ICONS_DIR=icons
-png_list=${ICONS_DIR}/border-48.png ${ICONS_DIR}/border-96.png ${ICONS_DIR}/border-256.png
+ICO_DIR=icons
+SIZES=16 24 32 48 64 96 128 256
+png_list=$(foreach i, ${SIZES},${ICO_DIR}/border-${i}.png)
 
-all : ${png_list}
+all :
+	@echo ${png_list}
 
-
-# Build all "${ICONS_DIR}/border-*.png" from the one and only "border.svg"
+# Build all "${ICO_DIR}/border-*.png" from the one and only "border.svg"
 ${png_list} : border.svg
-	@mkdir -p ${ICONS_DIR}
-	inkscape -w $(subst -,,$(subst ${ICONS_DIR}/$(+:.svg=),,$(@:.png=))) $+ -o $@
+	@echo ${png_list}
+	@mkdir -p ${ICO_DIR}
+	inkscape -w $(subst -,,$(subst ${ICO_DIR}/$(+:.svg=),,$(@:.png=))) $+ -o $@
 
 
 clean :

@@ -3,11 +3,17 @@
   "name": "Borderify",
   "version": "1.0",
 
-  "description": "Ajoute une bordure rouge pleine sur l'ensemble des pages web mozilla.org.",
+  "description": "Ajoute une bordure colorée pleine sur l'ensemble des pages web mozilla.org.",
 
   "icons": {
-    "48": "icons/border-48.png",
-    "96": "icons/border-96.png"
+    "16": "border.svg",
+    "24": "border.svg",
+    "32": "border.svg",
+    "48": "border.svg",
+    "64": "border.svg",
+    "96": "border.svg",
+    "128": "border.svg",
+    "256": "border.svg"
   },
 
   "content_scripts": [
